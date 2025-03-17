@@ -27,7 +27,7 @@ class AlignedDataset(BaseDataset):
         file_path ='demo.txt'
         im_name, c_name = linecache.getline(file_path, index+1).strip().split()
 
-        I_path = os.path.join(self.dir_I,im_name)
+        I_path = os.path.join(self.dir_I, im_name).replace("\\", "/")
         I = Image.open(I_path).convert('RGB')
 
         params = get_params(self.opt, I.size)
@@ -36,11 +36,11 @@ class AlignedDataset(BaseDataset):
 
         I_tensor = transform(I)
 
-        C_path = os.path.join(self.dir_C,c_name)
+        C_path = os.path.join(self.dir_C, c_name).replace("\\", "/")
         C = Image.open(C_path).convert('RGB')
         C_tensor = transform(C)
 
-        E_path = os.path.join(self.dir_E,c_name)
+        E_path = os.path.join(self.dir_E, c_name).replace("\\", "/")
         E = Image.open(E_path).convert('L')
         E_tensor = transform_E(E)
 
