@@ -5,7 +5,7 @@ import numpy as np
 import random
 
 class BaseDataset(data.Dataset):
-    def __init__(self):  are there any related error in this code? 
+    def __init__(self): 
         super(BaseDataset, self).__init__()
 
     def name(self):
